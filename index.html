@@ -627,6 +627,7 @@
   <div class="card-body">
 
     <!-- PAGE 0: WELCOME POSTER -->
+<!-- PAGE 0: WELCOME POSTER -->
 <div class="page active" id="page-welcome">
   <div class="thanks-step">
     <div class="poster-wrap">
@@ -635,10 +636,23 @@
     <h2>Get Your Free Floor Cleaner! 🎁</h2>
     <p>Leave us a Google Review and claim your free gift today.</p>
     <hr class="divider">
-    <button class="btn-primary" onclick="showPage('page-form')">Agree & Continue →</button>
+    <!-- T&C checkbox added here -->
+    <div class="tnc-wrap">
+      <input type="checkbox" id="tnc-agree">
+      <label for="tnc-agree" class="tnc-label">
+        I have read and agree to the <a href="#" onclick="openModal(event)">Terms & Conditions</a>
+      </label>
+    </div>
+    <button class="btn-primary" id="btn-agree" onclick="showPage('page-form')" disabled>
+      Agree & Continue →
+    </button>
     <p class="footer-note" style="margin-top:12px;">By continuing, you agree to our <a href="#" onclick="openModal(event)" style="color:var(--accent);font-weight:600;">Terms & Conditions</a></p>
   </div>
 </div>
+    // Enable/disable the "Agree & Continue" button based on T&C checkbox
+document.getElementById('tnc-agree').addEventListener('change', function() {
+  document.getElementById('btn-agree').disabled = !this.checked;
+}); 
     <!-- PAGE 1: FORM -->
     <div class="page" id="page-form">
       <div class="form-group">
