@@ -156,38 +156,24 @@
     z-index: 1;
   }
 
-  /* AWARDS STRIP */
-  .awards-strip {
-    background: var(--navy-light);
-    padding: 12px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    border-bottom: 1px solid var(--border);
-  }
-  .award-item {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--navy);
-  }
-  .award-img {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-    animation: float 3s ease-in-out infinite;
-  }
-  .award-img:nth-child(1) { animation-delay: 0s; }
-  .award-img:nth-child(2) { animation-delay: 0.5s; }
-  .award-divider { width: 1px; height: 28px; background: var(--border); }
-
-  .card-body { padding: 28px 32px; }
-
-  .page { display: none; }
-  .page.active { display: block; }
+  <!-- AWARDS STRIP -->
+  <div class="awards-strip">
+    <div class="award-item">
+      <img src="award1.png" alt="SME 100" class="award-img" onerror="this.style.display='none'">
+    </div>
+    <div class="award-divider"></div>
+    <div class="award-item">
+      <img src="award2.png" alt="Golden Bull" class="award-img" onerror="this.style.display='none'">
+    </div>
+    <div class="award-divider"></div>
+    <div class="award-item">
+      <img src="award3.png" alt="Sin Chew Excellent Business Award" class="award-img" onerror="this.style.display='none'">
+    </div>
+    <div class="award-divider"></div>
+    <div class="award-item">
+      <img src="award4.png" alt="Anugerah Usahawan Negeri Melaka" class="award-img" onerror="this.style.display='none'">
+    </div>
+  </div>
 
   /* FORM */
   .form-group { margin-bottom: 16px; }
