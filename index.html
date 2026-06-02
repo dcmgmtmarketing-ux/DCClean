@@ -630,8 +630,21 @@
 
   <div class="card-body">
 
+    <!-- PAGE 0: WELCOME POSTER -->
+<div class="page active" id="page-welcome">
+  <div class="thanks-step">
+    <div class="poster-wrap">
+      <img src="poster.png" alt="DC Clean Promotion" class="poster-img" onerror="this.parentElement.style.display='none'">
+    </div>
+    <h2>Get Your Free Floor Cleaner! 🎁</h2>
+    <p>Leave us a Google Review and claim your free gift today.</p>
+    <hr class="divider">
+    <button class="btn-primary" onclick="showPage('page-form')">Agree & Continue →</button>
+    <p class="footer-note" style="margin-top:12px;">By continuing, you agree to our <a href="#" onclick="openModal(event)" style="color:var(--accent);font-weight:600;">Terms & Conditions</a></p>
+  </div>
+</div>
     <!-- PAGE 1: FORM -->
-    <div class="page active" id="page-form">
+    <div class="page" id="page-form">
       <div class="form-group">
         <label for="inp-name">Full Name</label>
         <input type="text" id="inp-name" placeholder="e.g. John Smith" autocomplete="off">
@@ -655,14 +668,6 @@
         <div class="error-msg" id="err-branch">Please select your branch.</div>
       </div>
 
-      <!-- T&C CHECKBOX -->
-      <div class="tnc-wrap">
-        <input type="checkbox" id="tnc-check">
-        <label class="tnc-label" for="tnc-check">
-          I agree to the <a href="#" onclick="openModal(event)">Terms & Conditions</a> of this review campaign. I confirm that my review will be genuine and honest.
-        </label>
-      </div>
-      <div class="error-msg" id="err-tnc">Please agree to the Terms & Conditions.</div>
 
       <button class="btn-primary" onclick="submitForm()">Next →</button>
       <hr class="divider">
@@ -730,11 +735,6 @@
         <div class="big-icon">❤️</div>
         <h2>You're Amazing!</h2>
         <p>Your review has been successfully recorded. Thank you for taking the time!</p>
-
-        <!-- POSTER -->
-        <div class="poster-wrap">
-          <img src="poster.png" alt="DC Clean Promotion" class="poster-img" onerror="this.parentElement.style.display='none'">
-        </div>
 
         <!-- PROMO BOX -->
         <div class="promo-box">
@@ -804,7 +804,6 @@
     const name   = document.getElementById('inp-name').value.trim();
     const phone  = document.getElementById('inp-phone').value.trim();
     const branch = document.getElementById('inp-branch').value;
-    const tnc    = document.getElementById('tnc-check').checked;
 
     const phoneClean = phone.replace(/[\s\-]/g, '');
     const phoneValid = /^(\+?60|0)[0-9]{8,11}$/.test(phoneClean);
@@ -812,9 +811,8 @@
     document.getElementById('err-name').classList.toggle('show', !name);
     document.getElementById('err-phone').classList.toggle('show', !phoneValid);
     document.getElementById('err-branch').classList.toggle('show', !branch);
-    document.getElementById('err-tnc').classList.toggle('show', !tnc);
 
-    if (!name || !phoneValid || !branch || !tnc) return;
+    if (!name || !phoneValid || !branch) return;
 
     customerData = { name, phone: phoneClean, branch };
     saveToSheet(customerData);
