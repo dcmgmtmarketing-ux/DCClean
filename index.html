@@ -89,28 +89,25 @@
   }
 
   /* LOGO */
-  .logo-img-wrap {
-  background: #ffffff;
-  border-radius: 14px;
-  padding: 6px;
-  border: 1.5px solid rgba(255,255,255,0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  animation: float 3s ease-in-out infinite;
-}
-.logo-img {
-  width: 44px;
-  height: 44px;
-  object-fit: contain;
-  border-radius: 0;
-  background: transparent;
-  padding: 0;
-  border: none;
-  animation: none;
-}
+  .logo-wrap {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+  .logo-img {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    object-fit: contain;
+    background: rgba(255,255,255,0.12);
+    padding: 6px;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    animation: float 3s ease-in-out infinite;
+  }
   @keyframes float {
     0%,100% { transform: translateY(0px); }
     50%      { transform: translateY(-6px); }
@@ -178,8 +175,8 @@
     color: var(--navy);
   }
   .award-img {
-    width: 80px;
-    height: 80px;
+    width: 32px;
+    height: 32px;
     object-fit: contain;
     animation: float 3s ease-in-out infinite;
   }
@@ -595,8 +592,7 @@
   <!-- HEADER WITH LOGO -->
   <div class="card-header">
     <div class="logo-wrap">
-      <div class="logo-img-wrap">
-  <img src="logo.png" alt="DC Clean Logo" class="logo-img" onerror="this.style.display='none'">
+      <img src="logo.png" alt="DC Clean Logo" class="logo-img" onerror="this.style.display='none'">
       <div class="logo-text">
         <div class="brand">DC Clean</div>
         <div class="tagline">Professional Cleaning Services</div>
@@ -611,22 +607,26 @@
 
   <!-- AWARDS STRIP -->
   <div class="awards-strip">
-  <div class="award-item">
-    <img src="award1.png" alt="Award 1" class="award-img" onerror="this.parentElement.innerHTML='🏆'">
+    <div class="award-item">
+      <img src="award1.png" alt="Award 1" class="award-img" onerror="this.parentElement.innerHTML='🏆 Top Rated'">
+      <span>SME 100</span>
+    </div>
+    <div class="award-divider"></div>
+    <div class="award-item">
+      <img src="award2.png" alt="Award 2" class="award-img" onerror="this.parentElement.innerHTML='🥇 Best Service'">
+      <span>Golden Bull</span>
+    </div>
+    <div class="award-divider"></div>
+    <div class="award-item">
+      <img src="award3.png" alt="Award 3" class="award-img" onerror="this.parentElement.innerHTML='⭐ 5 Star'">
+      <span>Sin Chew Excellent Business Award</span>
+    </div>
+    <div class="award-divider"></div>
+    <div class="award-item">
+      <img src="award4.png" alt="Award 4" class="award-img" onerror="this.parentElement.innerHTML='🏅 Award 4'">
+      <span>Anugerah Usahawan Negeri Melaka</span>
+    </div>
   </div>
-  <div class="award-divider"></div>
-  <div class="award-item">
-    <img src="award2.png" alt="Award 2" class="award-img" onerror="this.parentElement.innerHTML='🥇'">
-  </div>
-  <div class="award-divider"></div>
-  <div class="award-item">
-    <img src="award3.png" alt="Award 3" class="award-img" onerror="this.parentElement.innerHTML='⭐'">
-  </div>
-  <div class="award-divider"></div>
-  <div class="award-item">
-    <img src="award4.png" alt="Award 4" class="award-img" onerror="this.parentElement.innerHTML='🏅'">
-  </div>
-</div>
 
   <div class="card-body">
 
