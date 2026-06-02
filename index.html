@@ -89,25 +89,28 @@
   }
 
   /* LOGO */
-  .logo-wrap {
-    position: relative;
-    z-index: 1;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-  }
-  .logo-img {
-    width: 56px;
-    height: 56px;
-    border-radius: 14px;
-    object-fit: contain;
-    background: #ffffff
-    padding: 6px;
-    border: 1.5px solid rgba(255,255,255,0.2);
-    animation: float 3s ease-in-out infinite;
-  }
+  .logo-img-wrap {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 6px;
+  border: 1.5px solid rgba(255,255,255,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  animation: float 3s ease-in-out infinite;
+}
+.logo-img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+  border: none;
+  animation: none;
+}
   @keyframes float {
     0%,100% { transform: translateY(0px); }
     50%      { transform: translateY(-6px); }
@@ -592,7 +595,8 @@
   <!-- HEADER WITH LOGO -->
   <div class="card-header">
     <div class="logo-wrap">
-      <img src="logo.png" alt="DC Clean Logo" class="logo-img" onerror="this.style.display='none'">
+      <div class="logo-img-wrap">
+  <img src="logo.png" alt="DC Clean Logo" class="logo-img" onerror="this.style.display='none'">
       <div class="logo-text">
         <div class="brand">DC Clean</div>
         <div class="tagline">Professional Cleaning Services</div>
