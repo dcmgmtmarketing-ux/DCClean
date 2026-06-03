@@ -683,7 +683,8 @@
   let giftOpened = false;
 
   // ── MODAL ──────────────────────────────────────────
-  function openModal(e) {
+  function openModal(e) 
+  {
     e.preventDefault();
     document.getElementById('tnc-modal').classList.add('open');
     startModalTimer();
@@ -696,11 +697,14 @@
     btn.disabled = true;
     label.textContent = `Please read... (${remaining})`;
 
-    const t = setInterval(() => {
+    const t = setInterval(() => 
+      {
       remaining--;
-      if (remaining > 0) {
+      if (remaining > 0) 
+      {
         label.textContent = `Please read... (${remaining})`;
-      } else {
+      } else 
+      {
         clearInterval(t);
         btn.disabled = false;
         label.textContent = 'I Understand ✓';
@@ -850,26 +854,29 @@
   }
 
   function launchConfetti() {
-    const container = document.getElementById('confetti-container');
-    const colors = ['#0a1f44','#1a6eb5','#ffd700','#ff6b6b','#51cf66','#fff'];
-    for (let i = 0; i < 80; i++) {
-      setTimeout(() => {
-        const piece = document.createElement('div');
-        piece.className = 'confetti-piece';
-        piece.style.cssText = `
-          left: ${Math.random() * 100}%;
-          background: ${colors[Math.floor(Math.random() * colors.length)]};
-          width: ${6 + Math.random() * 8}px;
-          height: ${6 + Math.random() * 8}px;
-          border-radius: ${Math.random() > 0.5 ? '50%' : '2px'};
-          animation-duration: ${1.5 + Math.random() * 2}s;
-          animation-delay: ${Math.random() * 0.5}s;
-        `;
-        container.appendChild(piece);
-        setTimeout(() => piece.remove(), 3500);
-      }, i * 20);
-    }
+  const container = document.getElementById('confetti-container');
+  const colors = ['#0a1f44','#1a6eb5','#ffd700','#ff6b6b','#51cf66','#fff'];
+
+  for (let i = 0; i < 80; i++) {
+    setTimeout(function() {
+      const piece = document.createElement('div');
+      piece.className = 'confetti-piece';
+
+      piece.style.left = (Math.random() * 100) + '%';
+      piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+      piece.style.width = (6 + Math.random() * 8) + 'px';
+      piece.style.height = (6 + Math.random() * 8) + 'px';
+      piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+      piece.style.animationDuration = (1.5 + Math.random() * 2) + 's';
+      piece.style.animationDelay = (Math.random() * 0.5) + 's';
+
+      container.appendChild(piece);
+      setTimeout(function() {
+        piece.remove();
+      }, 3500);
+    }, i * 20);
   }
+}
 </script>
 </body>
 </html>
