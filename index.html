@@ -584,7 +584,9 @@
       <li>DC Clean reserves the right to verify the authenticity of submitted reviews.</li>
       <li>Fake or incentivised reviews that violate Google's policies are strictly prohibited.</li>
     </ul>
-    <button class="modal-close" onclick="closeModal()">I Understand ✓</button>
+    <button class="modal-close" id="btn-modal-close" onclick="closeModalAndProceed()" disabled>
+  <span id="btn-modal-label">Please read... (10)</span>
+</button>
   </div>
 </div>
 
@@ -643,12 +645,9 @@
         I have read and agree to the <a href="#" onclick="openModal(event)">Terms & Conditions</a>
       </label>
     </div>
-    <button class="btn-primary" id="btn-welcome" onclick="proceedFromWelcome()" disabled>
-  <span id="btn-welcome-label">Please wait 10 seconds... (10)</span>
-</button>
+    <button class="btn-primary" onclick="openModal(event)">Read Terms & Continue →</button>
       Agree & Continue →
     </button>
-    <p class="footer-note" style="margin-top:12px;">By continuing, you agree to our <a href="#" onclick="openModal(event)" style="color:var(--accent);font-weight:600;">Terms & Conditions</a></p>
   </div> 
 </div>
     
@@ -933,7 +932,38 @@ function startWelcomeTimer() {
 function proceedFromWelcome() {
   showPage('page-form');
 }
-  startWelcomeTimer();
+  function openModal(e) {
+  e.preventDefault();
+  document.getElementById('tnc-modal').classList.add('open');
+  startModalTimer();
+}
+
+function startModalTimer() {
+  let remaining = 10;
+  const btn = document.getElementById('btn-modal-close');
+  const label = document.getElementById('btn-modal-label');
+  btn.disabled = true;
+
+  const t = setInterval(() => {
+    remaining--;
+    if (remaining > 0) {
+      label.textContent = `Please read... (${remaining})`;
+    } else {
+      clearInterval(t);
+      btn.disabled = false;
+      label.textContent = 'I Understand ✓';
+    }
+  }, 1000);
+}
+
+function closeModalAndProceed() {
+  document.getElementById('tnc-modal').classList.remove('open');
+  showPage('page-form');
+}
+
+function closeModal() {
+  document.getElementById('tnc-modal').classList.remove('open');
+}
 </script>
 </body>
 </html>
