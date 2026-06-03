@@ -832,9 +832,10 @@
   let timerInterval = null;
 
   function openModal(e) {
-    e.preventDefault();
-    document.getElementById('tnc-modal').classList.add('open');
-  }
+  e.preventDefault();
+  document.getElementById('tnc-modal').classList.add('open');
+  startModalTimer();
+}
   function closeModal() {
     document.getElementById('tnc-modal').classList.remove('open');
   }
