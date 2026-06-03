@@ -616,8 +616,8 @@
     <ul>
       <li>This review campaign is open to all customers who have used DC Clean services.</li>
       <li>You must leave A 5-STAR review on Google before claiming your reward.</li>
-      <li>Each customer is entitled to one (1) free floor cleaner per review submission.</li>
       <li>You are required to upload a picture of your review and mention the worker's name who served you.</li>
+      <li>Each customer is entitled to one (1) free floor cleaner per review submission.</li>
       <li>This offer is valid while stocks last and cannot be exchanged for cash.</li>
       <li>Your personal information (name & phone number) is collected solely for record purposes and will not be shared with third parties.</li>
       <li>DC Clean reserves the right to verify the authenticity of submitted reviews.</li>
@@ -1008,11 +1008,16 @@ function closeModal() {
 }
 
 function explodeGift() {
+let giftOpened = false;
+
+function explodeGift() {
+  launchConfetti();
+  if (giftOpened) return;
+  giftOpened = true;
+
   const gift = document.getElementById('gift-trigger');
   gift.classList.remove('shake');
-  launchConfetti();
   gift.style.fontSize = '0px';
-  gift.onclick = null;
   gift.style.cursor = 'default';
 
   const bottle = document.createElement('img');
